@@ -1,1 +1,1 @@
-# RTIS-Bao-Hypervisor-Team-RXM-
+# RTIS-Bao-Hypervisor-RXM
