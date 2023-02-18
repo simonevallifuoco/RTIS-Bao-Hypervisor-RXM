@@ -70,6 +70,7 @@ void shmem_handler() {
     char* end = strchr(linux_message, '\n');
     *end = '\0';
     printf("%s\n", linux_message);
+    strcpy(freertos_message, "FreeRTOS: OK\n");
     start = 1;
 }
 
@@ -84,8 +85,8 @@ void shmem_init() {
 
 //Matrici
 #define MSIZE 100
-#define N1 200
-#define N2 50
+#define N1 100
+#define N2 100
 
 void generate_matrix(uint32_t **matrix, const size_t size) {
     for(size_t i = 0; i < size; i++) {
@@ -118,7 +119,6 @@ static void prod_matrix(uint32_t **m1, uint32_t **m2, const size_t size)
         for (int j = 0; j < size; j++) {
             for (int k = 0; k < size; k++) {
                 result[i][j] += m1[i][k] * m2[k][j];
-                //printf("res = %d\n", result[i][j]);
             }
         }
     }
@@ -149,8 +149,9 @@ void vTask(void *pvParameters)
 
     while (1)
     {
-    printf("Task%d: %d before while\n", id, counter++);
-        while(start == 0) vTaskDelay(10);
+        printf("Task%d: %d waiting for start message\n", id, counter++);
+
+        while(start == 0) vTaskDelay(10); 
         start = 0;
 
         printf("Task%d: %d start=1\n", id, counter++);
@@ -181,9 +182,8 @@ void vTask(void *pvParameters)
                 //printf("sum: %d\n", sum);
             }
 
-            //media dei tempi calcolata in millisecondi
-            //mean = sum / (N2 * portTICK_PERIOD_MS);
-            mean = ( (sum * 1000000)/ (N2 * configTICK_RATE_HZ) );
+            //media dei tempi calcolata in microsecondi
+            mean = (sum*1000000)/ (N2*configTICK_RATE_HZ);
             printf("Average calculation time: %d us\n", mean);
         }
 
@@ -203,11 +203,10 @@ int main(void)
     irq_set_prio(UART_IRQ_ID, IRQ_MAX_PRIO);
     irq_enable(UART_IRQ_ID); 
      
-    printf("Srand seed\n");
     //seme numeri casuali
     srand(xTaskGetTickCount());
 
-    printf("Shared memory init\n");
+    printf("Shared memory initialization\n");
     shmem_init();   
 
     printf("Create task\n");
