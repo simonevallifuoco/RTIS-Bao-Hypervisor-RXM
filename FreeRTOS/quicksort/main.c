@@ -84,8 +84,8 @@ void shmem_init() {
 
 
 //Vettori
-#define N1 200
-#define N2 50
+#define N1 100
+#define N2 100
 
 // Riempimento vettore
 void generateVector(uint32_t* const vector, uint32_t size) {
