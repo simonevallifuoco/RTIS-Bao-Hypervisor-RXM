@@ -1,5 +1,7 @@
 # RTIS-Bao-Hypervisor-RXM
 
+https://github.com/bao-project/bao-demos.git guide has been followed to setup Bao on zcu104 platform.
+
 ### configs
 In _configs_ folder there is the config files used to configure the VMs running on top of Bao, for Xilinx ZCU104 platform, with coloring disabled, enabled for the guests, or enabled for the guests and the hypervisor.
 
