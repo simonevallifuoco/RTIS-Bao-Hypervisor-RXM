@@ -10,7 +10,7 @@ In _temporal\_isolation_ folder there are the freeRTOS programs used for tempora
 
 In order to correctly run FreeRTOS code, bao-demos/wrkdir/srcs/freertos/src/arch/armv8/inc/FreeRTOSConfig.h must be modified to set configTOTAL_HEAP_SIZE and configTICK_RATE_HZ depending on the desired heap size and tick rate.
 
-main.c program in bao-demos/wrkdir/srcs/freertos must be modified to run matrix product or quicksort, then FreeRTOS must be compiled, and Bao must be re-built. 
+FreeRTOS main.c program in bao-demos/wrkdir/srcs/freertos must be modified to run matrix product or quicksort, then FreeRTOS must be compiled, and Bao must be re-built. 
 
 ### fault_isolation
 In _fault\_isolation_ folder there are the FreeRTOS and Linux programs used for fault isolation tests.
