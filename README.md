@@ -7,6 +7,8 @@ stress-ng package has been included in Linux guest from Buildroot configuration.
 ### configs
 In _configs_ folder there are the config files used to configure Bao and the VMs running on top of Bao, for Xilinx ZCU104 platform, with coloring disabled, enabled for the guests, or enabled for the guests and the hypervisor.
 
+The correct Linux configuration parameters must be set according to the Bao config file in the .dts file before building Linux guest.
+
 The correct config must be set in bao-demos/wrkdir/imgs/zcu104/linux+freertos/config/linux+freertos.c file, then Bao must be re-built.
 
 ### temporal_isolation
