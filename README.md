@@ -5,7 +5,7 @@ https://github.com/bao-project/bao-demos.git guide has been followed to setup Ba
 stress-ng package has been included in Linux guest from Buildroot configuration.
 
 ### configs
-In _configs_ folder there is the config files used to configure the VMs running on top of Bao, for Xilinx ZCU104 platform, with coloring disabled, enabled for the guests, or enabled for the guests and the hypervisor.
+In _configs_ folder there are the config files used to configure the VMs running on top of Bao, for Xilinx ZCU104 platform, with coloring disabled, enabled for the guests, or enabled for the guests and the hypervisor.
 
 The correct config must be set in bao-demos/wrkdir/imgs/zcu104/linux+freertos/config/linux+freertos.c file, then Bao must be re-built.
 
