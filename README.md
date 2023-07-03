@@ -1,5 +1,7 @@
 # RTIS-Bao-Hypervisor-RXM
 
+Read the paper Bao_Hypervisor.pdf.
+
 https://github.com/bao-project/bao-demos.git guide has been followed to setup Bao on zcu104 platform. 
 
 stress-ng package has been included in Linux guest from Buildroot configuration.
